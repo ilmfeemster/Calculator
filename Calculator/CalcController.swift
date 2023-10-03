@@ -61,6 +61,34 @@ class CalcController: UIViewController {
 // MARK: - CollectionView Methods
 extension CalcController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    // MARK: - Section Header Cell
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CalcHeaderCell.identifier, for: indexPath) as? CalcHeaderCell else {
+            fatalError("Failed to dequeue CalcHeaderCell in CalcController")
+        }
+        header.configure(currentCalcText: self.viewModel.calcHeaderLabel)
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let totalCellHeight = view.frame.size.width
+        let totalVerticalCellSpacing = CGFloat(10*4)
+        
+        let window = view.window?.windowScene?.keyWindow
+        let topPadding = window?.safeAreaInsets.top ?? 0
+        let bottomPadding = window?.safeAreaInsets.bottom ?? 0
+        
+        let availableScreenHeight = view.frame.size.height - topPadding - bottomPadding
+        
+        let headerHeight = availableScreenHeight - totalCellHeight - totalVerticalCellSpacing
+        
+        return CGSize(width: view.frame.size.width, height: headerHeight)
+        
+    }
     
     // MARK: - Normal Cells (Buttons)
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -84,12 +112,12 @@ extension CalcController: UICollectionViewDelegate, UICollectionViewDataSource, 
         switch calcButton {
         case let .number(int) where int == 0:
             return CGSize(
-                width: (view.frame.self.width/5)*2 + ((view.frame.self.width/5)/3),
+                width: (view.frame.size.width/5)*2 + ((view.frame.size.width/5)/3),
                 height: view.frame.size.width/5
             )
         default:
             return CGSize(
-                width: view.frame.self.width/5,
+                width: view.frame.size.width/5,
                 height: view.frame.size.width/5
             )
         }
@@ -97,6 +125,10 @@ extension CalcController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return (self.view.frame.width/5)/3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
