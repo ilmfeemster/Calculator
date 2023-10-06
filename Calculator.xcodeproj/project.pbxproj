@@ -15,6 +15,8 @@
 		001348012ACC6443009F653D /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001348002ACC6443009F653D /* ButtonCell.swift */; };
 		001348032ACC64A5009F653D /* CalcHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001348022ACC64A5009F653D /* CalcHeaderCell.swift */; };
 		001348052ACC64E0009F653D /* CalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001348042ACC64E0009F653D /* CalculatorButton.swift */; };
+		001348092ACCD652009F653D /* CalculatorOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001348082ACCD652009F653D /* CalculatorOperation.swift */; };
+		0013480B2ACCD75F009F653D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0013480A2ACCD75F009F653D /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		001348002ACC6443009F653D /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		001348022ACC64A5009F653D /* CalcHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcHeaderCell.swift; sourceTree = "<group>"; };
 		001348042ACC64E0009F653D /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
+		001348082ACCD652009F653D /* CalculatorOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorOperation.swift; sourceTree = "<group>"; };
+		0013480A2ACCD75F009F653D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 				001347F02ACC5D47009F653D /* Assets.xcassets */,
 				001347E92ACC5D41009F653D /* SceneDelegate.swift */,
 				001347E72ACC5D41009F653D /* AppDelegate.swift */,
+				0013480A2ACCD75F009F653D /* Extensions.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -84,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				001348042ACC64E0009F653D /* CalculatorButton.swift */,
+				001348082ACCD652009F653D /* CalculatorOperation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,12 +173,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				001347EC2ACC5D41009F653D /* CalcController.swift in Sources */,
+				0013480B2ACCD75F009F653D /* Extensions.swift in Sources */,
 				001348052ACC64E0009F653D /* CalculatorButton.swift in Sources */,
 				001347E82ACC5D41009F653D /* AppDelegate.swift in Sources */,
 				001347EA2ACC5D41009F653D /* SceneDelegate.swift in Sources */,
 				001348032ACC64A5009F653D /* CalcHeaderCell.swift in Sources */,
 				001348012ACC6443009F653D /* ButtonCell.swift in Sources */,
 				001347FF2ACC6414009F653D /* CalcControllerViewModel.swift in Sources */,
+				001348092ACCD652009F653D /* CalculatorOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
